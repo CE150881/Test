@@ -10,7 +10,6 @@ import Entity.Food;
 import Entity.User;
 import context.DBConnection;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,10 +34,9 @@ public class DAO {
             try {
                 while (resultSet.next()) {
                     list.add(new User(
-                            
                             resultSet.getString(1),
                             resultSet.getString(2),
-                            resultSet.getInt(3),
+                            resultSet.getString(3),
                             resultSet.getString(4),
                             resultSet.getString(5),
                             resultSet.getInt(6),
@@ -169,10 +167,9 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new User(
-                        
                         rs.getString(1),
                         rs.getString(2),
-                        rs.getInt(3),
+                        rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
@@ -218,7 +215,7 @@ public class DAO {
                 return new User(
                         rs.getString(1),
                         rs.getString(2),
-                        rs.getInt(3),
+                        rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
@@ -257,10 +254,10 @@ public class DAO {
             ps.setString(1, user);
             rs = ps.executeQuery();
             while (rs.next()) {
-                return new User(                        
+                return new User(
                         rs.getString(1),
                         rs.getString(2),
-                        rs.getInt(3),
+                        rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
@@ -272,20 +269,23 @@ public class DAO {
         return null;
     }
 
-    public void insertBill(String userName, double total, String address) throws SQLException, ClassNotFoundException {
+    public void insertBill(int billID, String userName, double total, String address) throws SQLException, ClassNotFoundException {
         Connection con = null;
         PreparedStatement ps = null;
 
         try {
             con = DBConnection.getConnection();
             String sql = "Insert into bill "
-                    + "(userName, total, address) "
-                    + "Values (?,?,?)";
+                    + "(billID, userName, total, address) "
+                    + "Values (?,?,?,?)";
             ps = con.prepareStatement(sql);
-            ps.setString(1, userName);
-            ps.setDouble(2, total);
-            ps.setString(3, address);
+            ps.setInt(1, billID);
+            ps.setString(2, userName);
+            ps.setDouble(3, total);
+            ps.setString(4, address);
+            System.out.println("5");
             ps.execute();
+            System.out.println("6");
         } finally {
             if (con != null) {
                 con.close();
@@ -295,12 +295,67 @@ public class DAO {
             }
         }
     }
+
+    public int getLastBillID() throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            con = DBConnection.getConnection();
+            String sql = "Select MAX(billID) "
+                    + "From bill ";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                int billID = rs.getInt(1);
+                return ++billID;
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return 0;
+    }
+
+    public void insertCart(int billID, int foodID, String foodName, int foodPrice, int quantity) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        try {
+            con = DBConnection.getConnection();
+            String sql = "Insert into cart "
+                    + "(billID, foodID, foodName, foodPrice, quantity) "
+                    + "Values (?,?,?,?,?)";
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, billID);
+            ps.setInt(2, foodID);
+            ps.setString(3, foodName);
+            ps.setInt(4, foodPrice);
+            ps.setInt(5, quantity);
+            ps.execute();
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
 // get telephone 
+
     public String getTelephone(String username) throws SQLException, ClassNotFoundException {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
+
         try {
             con = DBConnection.getConnection();
             String sql = "Select userPhone "
@@ -309,23 +364,79 @@ public class DAO {
             ps = con.prepareStatement(sql);
             ps.setString(1, username);
             rs = ps.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 return rs.getString(1);
             }
         } finally {
-            if (rs != null){
+            if (rs != null) {
                 rs.close();
             }
-            if (ps != null){
+            if (ps != null) {
                 ps.close();
             }
-            if (con != null){
+            if (con != null) {
                 con.close();
             }
         }
         return null;
     }
-    
+
+    public boolean updateUser(String userEmail, String userPhone, String userGender, String userName) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBConnection.getConnection();
+            String sql = "UPDATE user "
+                    + "SET userEmail = ? , userPhone = ? , userGender = ? "
+                    + "WHERE user.`userName` = ?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, userEmail);
+            ps.setString(2, userPhone);
+            ps.setString(3, userGender);
+            ps.setString(4, userName);
+            int row = ps.executeUpdate();
+            if (row > 0) {
+                return true;
+            }
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return false;
+    }
+
+    public boolean updatePassword(String password, String userName) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DBConnection.getConnection();
+            String sql = "UPDATE user "
+                    + "SET password = ? "
+                    + "WHERE user.`userName` = ?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, password);
+            ps.setString(2, userName);
+            int row = ps.executeUpdate();
+            if (row > 0) {
+                return true;
+            }
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         DAO dao = new DAO();
 

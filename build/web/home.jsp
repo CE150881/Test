@@ -22,17 +22,6 @@
         <meta name="generator" content="Nicepage 3.16.0, nicepage.com">
         <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
         <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Coiny:400|Alata:400">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!------ Include the above in your HEAD tag ---------->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-              integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-
 
 
         <script type="application/ld+json">{
@@ -67,7 +56,7 @@
                             </li></ul>
                     </div>
                 </nav>
-                
+
                 <c:if test="${sessionScope.acc.isSelf != 1}">
                     <span style="margin-right: -130px" class="u-icon u-icon-circle u-radius-50 u-text-black u-icon-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="" data-href="Cart.jsp" data-page-id="22529364"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 -31 512.00026 512" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-a4f3"></use></svg><svg class="u-svg-content" viewBox="0 -31 512.00026 512" id="svg-a4f3"><path d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"></path><path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path><path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path></svg></span>
                     </c:if>
@@ -107,7 +96,7 @@
                             <tbody class="u-align-center u-table-body">
                                 <tr style="height: 55px;">
                                     <td class="u-table-cell">
-                                        <a href="profile" data-page-id="123672971" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-body-alt-color u-text-hover-black u-btn-1">${sessionScope.acc.userName}</a>
+                                        <a href="infoUser.jsp" data-page-id="123672971" class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-body-alt-color u-text-hover-black u-btn-1">${sessionScope.acc.userName}</a>
                                     </td>
                                     <td class="u-table-cell">
                                         <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-custom-font u-hover-none u-none u-text-body-alt-color u-text-hover-black u-btn-2" href="logout" data-page-id="383923227">Đăng xuất</a>
@@ -264,36 +253,32 @@
 
 
         <section class="u-clearfix u-image u-shading u-section-3" id="sec-79c5" data-image-width="800" data-image-height="563">
-            <div class="u-clearfix u-sheet u-sheet-1"><span class="u-icon u-icon-circle u-text-palette-1-base u-icon-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 490.688 490.688" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-8ed4"></use></svg><svg class="u-svg-content" viewBox="0 0 490.688 490.688" x="0px" y="0px" id="svg-8ed4" style="enable-background:new 0 0 490.688 490.688;"><path style="fill:#FFC107;" d="M462.784,209.088c-7.552-5.568-17.067-12.523-18.219-17.067c0.484-8.796,2.996-17.36,7.339-25.024  c6.656-15.275,13.525-31.104,5.888-44.267c-7.637-13.163-25.003-15.296-41.707-17.067c-8.658-0.058-17.188-2.094-24.939-5.952  c-3.864-7.778-5.893-16.339-5.931-25.024c-1.877-16.704-3.819-33.984-17.067-41.707c-13.248-7.723-29.099-0.96-44.373,5.781  c-7.672,4.341-16.243,6.852-25.045,7.339c-4.608-1.237-11.541-10.667-17.067-18.219c-9.685-13.056-20.587-27.861-36.331-27.861  s-26.645,14.805-36.267,27.861c-5.589,7.573-12.523,17.067-17.067,18.24c-8.794-0.53-17.356-3.038-25.045-7.339  c-15.36-6.763-31.189-13.504-44.309-5.909s-15.317,25.003-17.195,41.813c-0.061,8.655-2.089,17.183-5.931,24.939  c-7.736,3.803-16.233,5.801-24.853,5.845c-16.725,1.877-34.027,3.819-41.728,17.067S32,151.616,38.741,166.912  c4.357,7.689,6.869,16.284,7.339,25.109c-1.237,4.608-10.667,11.563-18.219,17.067C14.805,218.688,0,229.611,0,245.355  s14.805,26.667,27.883,36.267c7.552,5.568,17.067,12.523,18.219,17.067c-0.484,8.796-2.996,17.36-7.339,25.024  c-6.656,15.275-13.525,31.104-5.888,44.267c7.637,13.163,25.003,15.296,41.707,17.067c8.658,0.058,17.188,2.094,24.939,5.952  c3.864,7.778,5.893,16.339,5.931,25.024c1.877,16.704,3.819,33.984,17.067,41.707c13.248,7.723,28.971,0.768,44.267-5.888  c7.749-4.293,16.37-6.773,25.216-7.253c4.608,1.237,11.541,10.667,17.067,18.219c9.621,13.056,20.523,27.861,36.267,27.861  s26.645-14.805,36.267-27.861c5.589-7.573,12.523-17.067,17.067-18.24c8.8,0.498,17.368,3.008,25.045,7.339  c15.275,6.656,31.104,13.483,44.245,5.909c13.141-7.573,15.317-25.003,17.195-41.728c0.061-8.655,2.089-17.183,5.931-24.939  c7.75-3.834,16.271-5.855,24.917-5.909c16.725-1.877,34.027-3.819,41.728-17.067c7.701-13.248,0.747-28.971-5.888-44.267  c-4.343-7.728-6.826-16.362-7.253-25.216c1.237-4.608,10.667-11.563,18.219-17.067c13.056-9.621,27.883-20.544,27.883-36.267  S475.861,218.688,462.784,209.088z"></path><g><path style="fill:#FAFAFA;" d="M181.333,298.688c-3.357,0-6.519-1.581-8.533-4.267L128,234.688v53.333   c0,5.891-4.776,10.667-10.667,10.667s-10.667-4.776-10.667-10.667v-85.333c0-5.891,4.776-10.667,10.667-10.667   c3.357,0,6.519,1.581,8.533,4.267l44.8,59.733v-53.333c0-5.891,4.776-10.667,10.667-10.667c5.891,0,10.667,4.776,10.667,10.667   v85.333c-0.003,4.589-2.942,8.662-7.296,10.112C183.618,298.501,182.48,298.688,181.333,298.688z"></path><path style="fill:#FAFAFA;" d="M266.667,298.688H224c-5.891,0-10.667-4.776-10.667-10.667v-85.333   c0-5.891,4.776-10.667,10.667-10.667h42.667c5.891,0,10.667,4.776,10.667,10.667c0,5.891-4.776,10.667-10.667,10.667h-32v64h32   c5.891,0,10.667,4.776,10.667,10.667S272.558,298.688,266.667,298.688z"></path><path style="fill:#FAFAFA;" d="M266.667,256.021H224c-5.891,0-10.667-4.776-10.667-10.667s4.776-10.667,10.667-10.667h42.667   c5.891,0,10.667,4.776,10.667,10.667S272.558,256.021,266.667,256.021z"></path><path style="fill:#FAFAFA;" d="M373.333,298.688c-4.597,0.006-8.681-2.934-10.133-7.296L352,257.749l-11.2,33.643   c-1.363,4.603-5.751,7.633-10.539,7.275c-4.738-0.18-8.788-3.465-9.941-8.064l-21.333-85.333   c-1.426-5.72,2.056-11.513,7.776-12.939c5.72-1.426,11.513,2.056,12.939,7.776l12.437,49.792l9.749-29.248   c2.535-5.591,9.122-8.068,14.713-5.533c2.454,1.113,4.42,3.079,5.533,5.533l9.749,29.248l12.437-49.792   c1.426-5.72,7.218-9.202,12.939-7.776c5.72,1.426,9.202,7.218,7.776,12.939l-21.333,85.333c-1.153,4.599-5.204,7.884-9.941,8.064   L373.333,298.688z"></path>
-                    </g></svg></span>
+            <div class="u-clearfix u-sheet u-sheet-1"><span class="u-icon u-icon-circle u-text-palette-1-base u-icon-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 490.688 490.688" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-8ed4"></use></svg><svg class="u-svg-content" viewBox="0 0 490.688 490.688" x="0px" y="0px" id="svg-8ed4" style="enable-background:new 0 0 490.688 490.688;"><path style="fill:#FFC107;" d="M462.784,209.088c-7.552-5.568-17.067-12.523-18.219-17.067c0.484-8.796,2.996-17.36,7.339-25.024  c6.656-15.275,13.525-31.104,5.888-44.267c-7.637-13.163-25.003-15.296-41.707-17.067c-8.658-0.058-17.188-2.094-24.939-5.952  c-3.864-7.778-5.893-16.339-5.931-25.024c-1.877-16.704-3.819-33.984-17.067-41.707c-13.248-7.723-29.099-0.96-44.373,5.781  c-7.672,4.341-16.243,6.852-25.045,7.339c-4.608-1.237-11.541-10.667-17.067-18.219c-9.685-13.056-20.587-27.861-36.331-27.861  s-26.645,14.805-36.267,27.861c-5.589,7.573-12.523,17.067-17.067,18.24c-8.794-0.53-17.356-3.038-25.045-7.339  c-15.36-6.763-31.189-13.504-44.309-5.909s-15.317,25.003-17.195,41.813c-0.061,8.655-2.089,17.183-5.931,24.939  c-7.736,3.803-16.233,5.801-24.853,5.845c-16.725,1.877-34.027,3.819-41.728,17.067S32,151.616,38.741,166.912  c4.357,7.689,6.869,16.284,7.339,25.109c-1.237,4.608-10.667,11.563-18.219,17.067C14.805,218.688,0,229.611,0,245.355  s14.805,26.667,27.883,36.267c7.552,5.568,17.067,12.523,18.219,17.067c-0.484,8.796-2.996,17.36-7.339,25.024  c-6.656,15.275-13.525,31.104-5.888,44.267c7.637,13.163,25.003,15.296,41.707,17.067c8.658,0.058,17.188,2.094,24.939,5.952  c3.864,7.778,5.893,16.339,5.931,25.024c1.877,16.704,3.819,33.984,17.067,41.707c13.248,7.723,28.971,0.768,44.267-5.888  c7.749-4.293,16.37-6.773,25.216-7.253c4.608,1.237,11.541,10.667,17.067,18.219c9.621,13.056,20.523,27.861,36.267,27.861  s26.645-14.805,36.267-27.861c5.589-7.573,12.523-17.067,17.067-18.24c8.8,0.498,17.368,3.008,25.045,7.339  c15.275,6.656,31.104,13.483,44.245,5.909c13.141-7.573,15.317-25.003,17.195-41.728c0.061-8.655,2.089-17.183,5.931-24.939  c7.75-3.834,16.271-5.855,24.917-5.909c16.725-1.877,34.027-3.819,41.728-17.067c7.701-13.248,0.747-28.971-5.888-44.267  c-4.343-7.728-6.826-16.362-7.253-25.216c1.237-4.608,10.667-11.563,18.219-17.067c13.056-9.621,27.883-20.544,27.883-36.267  S475.861,218.688,462.784,209.088z"></path><g><path style="fill:#FAFAFA;" d="M181.333,298.688c-3.357,0-6.519-1.581-8.533-4.267L128,234.688v53.333   c0,5.891-4.776,10.667-10.667,10.667s-10.667-4.776-10.667-10.667v-85.333c0-5.891,4.776-10.667,10.667-10.667   c3.357,0,6.519,1.581,8.533,4.267l44.8,59.733v-53.333c0-5.891,4.776-10.667,10.667-10.667c5.891,0,10.667,4.776,10.667,10.667   v85.333c-0.003,4.589-2.942,8.662-7.296,10.112C183.618,298.501,182.48,298.688,181.333,298.688z"></path><path style="fill:#FAFAFA;" d="M266.667,298.688H224c-5.891,0-10.667-4.776-10.667-10.667v-85.333   c0-5.891,4.776-10.667,10.667-10.667h42.667c5.891,0,10.667,4.776,10.667,10.667c0,5.891-4.776,10.667-10.667,10.667h-32v64h32   c5.891,0,10.667,4.776,10.667,10.667S272.558,298.688,266.667,298.688z"></path><path style="fill:#FAFAFA;" d="M266.667,256.021H224c-5.891,0-10.667-4.776-10.667-10.667s4.776-10.667,10.667-10.667h42.667   c5.891,0,10.667,4.776,10.667,10.667S272.558,256.021,266.667,256.021z"></path><path style="fill:#FAFAFA;" d="M373.333,298.688c-4.597,0.006-8.681-2.934-10.133-7.296L352,257.749l-11.2,33.643   c-1.363,4.603-5.751,7.633-10.539,7.275c-4.738-0.18-8.788-3.465-9.941-8.064l-21.333-85.333   c-1.426-5.72,2.056-11.513,7.776-12.939c5.72-1.426,11.513,2.056,12.939,7.776l12.437,49.792l9.749-29.248   c2.535-5.591,9.122-8.068,14.713-5.533c2.454,1.113,4.42,3.079,5.533,5.533l9.749,29.248l12.437-49.792   c1.426-5.72,7.218-9.202,12.939-7.776c5.72,1.426,9.202,7.218,7.776,12.939l-21.333,85.333c-1.153,4.599-5.204,7.884-9.941,8.064   L373.333,298.688z"></path</g></svg></span>
                 <p class="u-custom-font u-text u-text-1">MÓN ​MỚI</p>
 
-
-
-                <div class="col-sm-9">
-                    <div class="row">
+                <div>
+                    <div>
                         <c:forEach items="${listL}" var="o">
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card">
-                                    <img class="card-img-top" src="${o.image}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4 class="card-title show_txt"><a href="detail?pid=${o.foodID}" title="View Product">${o.foodName}</a></h4>
-                                        <p class="card-text show_txt"></p>
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="btn btn-danger btn-block">${o.foodPrice} $</p>
+                            <div>
+                                <div style="display: block; float: left; text-align: center; width: 400px; padding: 60px 10px 25px 75px">
+                                    <img style="border-radius: 4px; width: 190px; height: 190px" src="${o.image}" alt="Card image cap">
+                                    <div>
+                                        <h4 style="font-family: Alata; font-size: 18px">${o.foodName}</a></h4>                                    
+                                        <div>
+                                            <div>
+                                                <p style="font-family: Alata;">${o.foodPrice} đ</p>
                                             </div>
 
                                             <c:if test="${sessionScope.acc != null}"> 
-                                                <div class="col">
-                                                    <a href="" class="btn btn-success btn-block">Add to cart</a>
+                                                <div style=" padding: 10px 15px; width: 130px; margin-left: 40px; border-radius: 18px; background-color: #dc0000">
+                                                    <a href="cart?id=${o.foodID}" style="font-family: Alata; border: 50px; color: #ffffff">ĐẶT HÀNG</a>
 
                                                 </div>
                                             </c:if>
 
                                             <c:if test="${sessionScope.acc == null}"> 
-                                                <div class="col">
-                                                    <a href="Login.jsp" class="btn btn-success btn-block">Add to cart</a>
+                                                <div style=" padding: 10px 15px; width: 130px; margin-left: 90px; border-radius: 18px; background-color: #dc0000">
+                                                    <a href="login.jsp" style="font-family: Alata; border: 50px; color: #ffffff">ĐẶT HÀNG</a>
 
                                                 </div>
                                             </c:if>

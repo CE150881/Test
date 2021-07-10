@@ -23,7 +23,9 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "cart2", urlPatterns = {"/cart2"})
 public class cart2 extends HttpServlet {
+
     private final String Success_Page = "hoa-don.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,22 +39,56 @@ public class cart2 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        /* TODO output your page here. You may use following sample code. */
+        /* get param to insert bill */
         String total = request.getParameter("txtSum");
-        HttpSession session = request.getSession();
-        User user =  (User) session.getAttribute("acc");
-        String username = user.getUserName();
         double total2 = Double.parseDouble(total);
-        String address = request.getParameter("txtAddress");
-        String url = Success_Page;
         
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("acc");
+        String username = user.getUserName();
+        
+        String address = request.getParameter("txtAddress");
+        
+        /* get param to insert cart */
+           
+        
+        String foodID[] = request.getParameterValues("txtFoodID");
+        Integer foodIDInt[] = new Integer[foodID.length];
+        for (int i = 0; i < foodID.length; i++) {
+            foodIDInt[i] = Integer.parseInt(foodID[i]);
+        }        
+        String foodName[] = request.getParameterValues("txtFoodName");
+        
+        String foodPrice[] = request.getParameterValues("txtFoodPrice");
+        Integer foodPriceInt[] = new Integer[foodPrice.length];
+        for (int i = 0; i < foodPrice.length; i++) {
+            foodPriceInt[i] = Integer.parseInt(foodPrice[i]);
+        }        
+        
+        String amount[] = request.getParameterValues("txtAmount");
+        Integer quanlity[] = new Integer[amount.length];
+        for (int i = 0; i < foodPrice.length; i++) {
+            quanlity[i] = Integer.parseInt(amount[i]);
+        }      
+        
+        /* print hoa-don */
+        String url = Success_Page;
+
         try {
             DAO dao = new DAO();
-            dao.insertBill(username, total2, address);
+            /* insert bill to database */
+            int billID = dao.getLastBillID();
+            System.out.println("billID: " + billID);
+            dao.insertBill(billID, username, total2, address);            
+            /* insert cart to database */
+            for (int i = 0; i < foodID.length; i++) {
+                dao.insertCart(billID, foodIDInt[i], foodName[i], foodPriceInt[i], quanlity[i]); 
+            }                               
+            /* if buy success then print hoa-don.jsp */
             String phone = dao.getTelephone(username);
             request.setAttribute("SUM", total2);
             request.setAttribute("ADDRESS", address);
-            request.setAttribute("TELE", phone);         
+            request.setAttribute("TELE", phone);
             request.setAttribute("USERNAME", username);
         } catch (Exception e) {
         } finally {

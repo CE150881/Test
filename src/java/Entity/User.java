@@ -5,15 +5,13 @@
  */
 package Entity;
 
-import java.util.Date;
-
 /**
  *
  * @author msi-pc
  */
 public class User {
 
-    public User(String userName, String password, int userPhone, String userEmail, String userGender, int isSelf, int isAdmin) {
+    public User(String userName, String password, String userPhone, String userEmail, String userGender, int isSelf, int isAdmin) {
         
         this.userName = userName;
         this.password = password;
@@ -42,11 +40,11 @@ public class User {
         this.password = password;
     }
 
-    public int getUserPhone() {
+    public String getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(int userPhone) {
+    public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
 
@@ -88,7 +86,7 @@ public class User {
     
     private String userName;
     private String password;
-    private int userPhone;
+    private String userPhone;
     private String userEmail;
     private String userGender;
     private int isSelf;

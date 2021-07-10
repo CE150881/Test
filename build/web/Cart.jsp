@@ -40,14 +40,7 @@
         <meta name="theme-color" content="#478ac9">
         <link rel="canonical" href="index.html">
         <meta property="og:url" content="index.html">
-        <style>
-            div.skin{
-                background-color: #FEF9E6	;
-            }
-            section.skin1{
-                background-color: #FEF9E6	;
-            }
-        </style>
+        
     </head>
     <body class="u-body">        <header class="u-align-center-xs u-clearfix u-custom-color-3 u-header u-sticky u-header" id="sec-e122"><div class="u-clearfix u-sheet u-sheet-1">
                 <div class="u-image u-image-circle u-preserve-proportions u-image-1" style="margin-left: -130px" alt="" data-image-width="1500" data-image-height="1500" data-href="home" data-page-id="150508545"></div>
@@ -175,13 +168,16 @@
                                                                             <img src="${o.image}" alt="" width="70" class="img-fluid rounded shadow-sm">
                                                                             <div class="ml-3 d-inline-block align-middle">
                                                                                 <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">${o.foodName}</a></h5><span class="text-muted font-weight-normal font-italic"></span>
+                                                                                <input type="hidden" value="${o.foodName}" name="txtFoodName"/>
                                                                             </div>
                                                                         </div>
                                                                     </th>
-                                                                    <td class="align-middle"><strong>${o.foodPrice}</strong></td>
+                                                                    <td class="align-middle"><strong>${o.foodPrice}</strong><input type="hidden" value="${o.foodPrice}" name="txtFoodPrice"/></td>
                                                                     <td class="align-middle">
-                                                                        <a href="sub?id=${o.foodID}"><input class="minus is-form" type="button" value="-"/></a> 
-                                                                        <strong>${o.amount}</strong>
+                                                                        
+                                                                        <input type="hidden" name="txtFoodID" value="${o.foodID}"/>
+                                                                        <a href="sub?id=${o.foodID}"><input class="minus is-form" type="button" value="-"/></a> <in
+                                                                        <strong>${o.amount}</strong><input type="hidden" value="${o.amount}" name="txtAmount"/>
                                                                         <a href="cart?id=${o.foodID}"><input class="plus is-form" type="button" value="+"/></a>
                                                                     </td>
                                                                     <td class="align-middle"><a href="remove?id=${o.foodID}" class="text-dark">
